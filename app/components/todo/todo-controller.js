@@ -9,7 +9,7 @@ function TodoController() {
 	var todoService = new TodoService()
 
 	// Use this getTodos function as your callback for all other edits
-	function getTodos(){
+	function getTodos() {
 		//FYI DONT EDIT ME :)
 		todoService.getTodos(draw)
 	}
@@ -23,9 +23,9 @@ function TodoController() {
 			template += `
 			
 			`
-			
+
 		}
-		//DONT FORGET TO LOOP
+		draw()//DONT FORGET TO LOOP
 	}
 
 	this.addTodoFromForm = function (e) {
@@ -33,6 +33,7 @@ function TodoController() {
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
 		var todo = {
+			todo: e.target.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
 
@@ -40,7 +41,7 @@ function TodoController() {
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
 		//YOU SHOULDN'T NEED TO CHANGE THIS
 		todoService.addTodo(todo, getTodos)
-		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
+		//^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
 	this.toggleTodoStatus = function (todoId) {
@@ -51,10 +52,10 @@ function TodoController() {
 
 	this.removeTodo = function (todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
-	draw()
+	draw(todos)
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 
 }

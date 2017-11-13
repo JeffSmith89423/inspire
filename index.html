@@ -14,8 +14,26 @@
 
 
 	<div id="todo">
-		<form onsubmit=""></form>
-		<!-- A Todo List -->
+		<form onsubmit="">
+			<!-- A Todo List -->
+			<ul class="container" id="todo-list">
+				<li>finish this assignment</li>
+				<li>eat</li>
+				<li>sleep</li>
+				<li>code</li>
+				<li>Read a book</li>
+			</ul>
+		</form>
+		<div class="form-group" id="todo">
+			<label for="todoInput">To-Do</label>
+			<input type="text" id="todoInput" class="form-control">
+		</div>
+		<button type="submit" onclick="app.controllers.todoController.addTodoFromForm(event)" class="btn btn-default">Add</button>
+		<button type="submit" class="btn btn-default">Delete</button>
+		<div class="row">
+			<div class="col-xs-12" id="todo"></div>
+		</div>
+
 	</div>
 
 	<footer>
