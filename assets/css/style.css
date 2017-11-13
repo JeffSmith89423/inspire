@@ -3,3 +3,10 @@ body{
     background-repeat: no-repeat;
     background-position: center center;
 }
+.weather{
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    color: red;
+    font-family: monospace;
+}

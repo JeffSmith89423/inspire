@@ -4,8 +4,8 @@ function QuoteController() {
 	var qs = new QuoteService();
 
 	qs.getQuote(function (quote) {
-		console.log('3')
-		console.log('What is the quote', quote);
+		// console.log('3')
+		// console.log('What is the quote', quote);
 		drawQuote(quote)
 	})
 

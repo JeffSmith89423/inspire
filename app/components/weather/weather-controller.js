@@ -5,7 +5,7 @@ function WeatherController() {
 	// var weather = []
 
 	weatherService.getWeather(function (weather) {
-		console.log('1')
+		// console.log('1')
 		console.log(weather);
 		//What can you do with this weather object?
 		drawWeather(weather)
@@ -16,6 +16,7 @@ function WeatherController() {
 
 		var template = ''
 		template = `
+		Location: ${weather.name}
 		Temperature: ${Math.round(weather.main.temp * (9/5) - 459.67)}${String.fromCharCode(176)}
 		Humidity: ${Math.round(weather.main.humidity)}%
 		Day High: ${Math.round(weather.main.temp_max * (9/5) - 459.67)}${String.fromCharCode(176)}

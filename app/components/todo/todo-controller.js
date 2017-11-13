@@ -1,6 +1,6 @@
 function TodoController() {
 	// new up the TodoService that has already been configured for your use
-	// You will need four methods
+	// You will need four methods 
 	// getTodos should request your api/todos and give an array of todos to your callback fn
 	// addTodo takes in a todo and posts it to the server
 	// toggleTodoStatus takes in a todo marks its status as completed and puts it to the server
@@ -18,6 +18,13 @@ function TodoController() {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var template = ''
+		for (var i = 0; i < todos.length; i++) {
+			var todo = todos[i];
+			template += `
+			
+			`
+			
+		}
 		//DONT FORGET TO LOOP
 	}
 
@@ -47,7 +54,7 @@ function TodoController() {
 
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
-
+	draw()
 	// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 
 }

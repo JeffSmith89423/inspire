@@ -8,8 +8,8 @@ function ImageController() {
 		}else{
 			document.body.style.backgroundImage = `url("${image.url}")`
 		}
-		console.log("this url",image.url)
-		console.log("this large url",image.large_url)
+		// console.log("this url",image.url)
+		// console.log("this large url",image.large_url)
 	})
 	
 }
