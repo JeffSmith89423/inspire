@@ -7,7 +7,7 @@ function TodoController() {
 	// removeTodo takes in a todoId and sends a delete request to the server
 	// **** HINT: Everytime you make a change to any todo don't forget to get the todo list again
 	var todoService = new TodoService()
-
+	var todosElem = document.getElementById("todo-list")
 	// Use this getTodos function as your callback for all other edits
 	function getTodos() {
 		//FYI DONT EDIT ME :)
@@ -21,17 +21,21 @@ function TodoController() {
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
 			template += `
-			
+			<ul class="container" id="todo-list">
+			<i class="glyphicon glyphicon-trash pull-right" onclick="app.controllers.todoController.removetodo(${i})"></i>
+			<li>${i}</li>
+		
 			`
 
 		}
-		draw()//DONT FORGET TO LOOP
+		todosElem.innerHTML = template//DONT FORGET TO LOOP
 	}
 
 	this.addTodoFromForm = function (e) {
 		e.preventDefault() // <-- hey this time its a freebie don't forget this
 		// TAKE THE INFORMATION FORM THE FORM
 		var form = e.target
+		todoService.addTodo(form, getTodos)
 		var todo = {
 			todo: e.target.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT

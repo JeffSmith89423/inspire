@@ -1,19 +1,24 @@
 function TodoService() {
 	// A local copy of your todos
-	var todoList = []
 	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/jeffrey-smith'
-
+	var todoList = []
+	
+	// var todo = todo[i]
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
-		
+
 		//CAN YOU NOTIFY THE USER IF SOMETHING BREAKS? 
 		//do this without breaking the controller/service responsibilities
+	}
+
+	function Todo(name){
+		this.name = name
 	}
 
 	this.getTodos = function (draw) {
 		$.get(baseUrl)
 			.then(function (res) { // <-- WHY IS THIS IMPORTANT????
-				
+
 			})
 			.fail(logError)
 	}
@@ -21,9 +26,9 @@ function TodoService() {
 	this.addTodo = function (todo) {
 		// WHAT IS THIS FOR???
 		$.post(baseUrl, todo)
-			.then(function(res){ // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				
-			}) 
+			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
+
+			})
 			.fail(logError)
 	}
 
@@ -38,7 +43,7 @@ function TodoService() {
 			method: 'PUT',
 			contentType: 'application/json',
 			url: baseUrl + '/' + todoId,
-			data: JSON.stringify(YOURTODOVARIABLEHERE)
+			data: JSON.stringify(todo)
 		})
 			.then(function (res) {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
@@ -50,9 +55,8 @@ function TodoService() {
 		// Umm this one is on you to write.... It's also unique, like the ajax call above. The method is a DELETE
 		$.ajax({
 			method: 'DELETE',
-			contentType: 'application/json',
 			url: baseUrl + '/' + todoId,
-			data: JSON.stringify(YOURTODOVARIABLEHERE)
+			data: JSON.stringify(todo)
 		})
 			.then(function (res) {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
